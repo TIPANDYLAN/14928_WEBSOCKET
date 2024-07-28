@@ -1,8 +1,6 @@
 # 14928_WEBSOCKET
 Proyecto de Chat con Websockets en Spring Boot con clientes en React
 
-[Tutorial Link](https://youtu.be/o_IjEDAuo8Y)
-
 Servidor:
     - Spring boot Websocket
 
