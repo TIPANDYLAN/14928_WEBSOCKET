@@ -9,7 +9,7 @@ FrontEnd - cliente
 
 ## Pantalla ReactJS
 
-![Chat screen](img/chat_screen.jpg "Chat screen")
+![Chat screen](img/Chatwebsockets.jpg "Chat screen")
 
 To start:
     
