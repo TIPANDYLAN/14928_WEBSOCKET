@@ -16,6 +16,9 @@ To start:
 ### Client
         - npm install (in the react-client folder)
         - npm start
+        - npm i sockjs-client -save
+        - npm i stopmjs -save
+        - npm i net --save
     
 ### Server
         - mvn spring-boot:run (in the spring-ws-server)
