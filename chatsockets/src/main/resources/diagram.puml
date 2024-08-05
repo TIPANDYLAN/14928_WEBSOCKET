@@ -1,0 +1,52 @@
+@startuml
+
+' Definición de los paquetes
+package com.achigriveratipan.chatsockets.config {
+    class WebsocketConfig {
+        +void registerStompEndpoints(StompEndpointRegistry registry)
+        +void configureMessageBroker(MessageBrokerRegistry registry)
+    }
+}
+
+package com.achigriveratipan.chatsockets.controller {
+    class ChatController {
+        -SimpMessagingTemplate simpMessagingTemplate
+        -Set<String> connectedUsers
+        +ChatController()
+        +Message receivePublicMessage(Message message)
+        +void receivePrivateMessage(Message message)
+        +void join(Message message)
+        +void leave(Message message)
+        +void joinGroup(GroupMessage groupMessage)
+    }
+}
+
+package com.achigriveratipan.chatsockets.model {
+    class GroupMessage {
+        +String senderName
+        +String groupName
+        +String message
+        +String status
+    }
+
+    class Message {
+        +String senderName
+        +String receiverName
+        +String message
+        +String date
+        +Status status
+    }
+
+    enum Status {
+        JOIN
+        MESSAGE
+        LEAVE
+    }
+}
+
+' Relaciones entre las clases
+ChatController --> GroupMessage
+ChatController --> Message
+Message --> Status
+
+@enduml
