@@ -3,6 +3,7 @@ package com.achigriveratipan.chatsockets.controller;
 import com.achigriveratipan.chatsockets.model.GroupMessage;
 import com.achigriveratipan.chatsockets.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -18,7 +19,7 @@ public class ChatController {
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
 
-    private Set<String> connectedUsers;
+    private final Set<String> connectedUsers;
 
     public ChatController() {
         connectedUsers = new HashSet<>();
@@ -49,7 +50,6 @@ public class ChatController {
 
     @MessageMapping("/join-group")
     public void joinGroup(@Payload GroupMessage groupMessage) {
-        // Send a message to all users in the group
         simpMessagingTemplate.convertAndSend("/topic/" + groupMessage.getGroupName(), groupMessage);
     }
 }
